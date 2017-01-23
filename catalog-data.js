@@ -86,4 +86,4 @@ let RootCategory = new Category('ROOT', 0);
 generateSubtree(RootCategory);
 
 module.exports = RootCategory;
-cata
+
