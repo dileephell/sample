@@ -1,4 +1,4 @@
-const RootCategory = require('./catalog-data');
+ const RootCategory = require('./catalog-data');
 
  // Might generate lot of data
 
@@ -65,41 +65,30 @@ const RootCategory = require('./catalog-data');
       * Write your code here
       
       */
-     console.log(RootCategory1);
-     console.log(RootCategory1.children[2].children.length);
-     for (i = 0; i <= RootCategory1.children.length; i++) {
-         //var level = RootCategory1.children[i].level;
-         console.log(i);
-         for (j = 0; j <= RootCategory1.children[i].children.length; j++) {
-             if (RootCategory1.children[i].children.length > 0) {
-                 //var productNmae = RootCategory1.children[i].children[j].name;
-                 console.log('fgfg');
+     var list_prod = [];
+     var products;
+     //  console.log(RootCategory1);
+
+     for (i = 0; i < RootCategory1.children.length; i++) {
+
+         var level = RootCategory1["children"];
+         if (level[i].children.length > 0) {
+             products = level[i].children;
+
+             list_prod.push(products);
+             for (j = 0; j < products.length; j++) {
+                 var prod_name = products[j].name;
+                 if (prod_name === productName) {
+                     level = level[i].level;
+
+                 }
              }
          }
 
-
      }
-     /* for (i = 0; i <= 4; i++) {
-         var newCat = new Category(`Cat_${i}`, i);
-         if (i > 1) {
-             for (let j = 1; j <= 2; j++) {
-                 // Generate random price
-                 let randomPrice = Math.floor(Math.random() * (MAX_PRICE - MIN_PRICE + 1)) + MIN_PRICE;
-
-                 newCat.addChild(new Product(`Prod_${j}`, randomPrice));
-             }
-         }
-         RootCategory1.addChild(newCat);
-     }
-
-     // console.log(JSON.stringify(RootCategory1, null, 2));
-    
-*/
-
+     console.log(level);
+     console.log(list_prod);
  }
 
-
-
- //generatetree();
  getSortedProductListUptoLevel();
  getSortedProductListUptoLevel1('Prod_1');
